@@ -3,6 +3,7 @@
 #include "GraphSearchTests.h"
 #include "GraphTests.h"
 #include "LinkedListTests.h"
+#include "MaximumFlowTests.h"
 #include "PriorityQueueTests.h"
 #include "SetTests.h"
 #include "ShortestPathTests.h"
@@ -36,6 +37,7 @@ int main()
    graphTests();
    graphSearchTests();
    connectedComponentsTests();
+   maximumFlowTests();
    shortestPathTests();
    topologicalSortTests();
    spanningTreeTests();
