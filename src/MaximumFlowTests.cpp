@@ -18,8 +18,20 @@ namespace algorithm
       assert(2. == computeMaximumFlow(g, 0, 1));
    }
 
+   static void diamondGraphTest()
+   {
+      CapacityGraph g(4);
+      g.addEdge({ 0, 1, 1000. });
+      g.addEdge({ 0, 2, 1000. });
+      g.addEdge({ 1, 2, 1. });
+      g.addEdge({ 1, 3, 1000. });
+      g.addEdge({ 2, 3, 1000. });
+      assert(2000. == computeMaximumFlow(g, 0, 3));
+   }
+
    void maximumFlowTests()
    {
       trivialGraphTest();
+      diamondGraphTest();
    }
 }
