@@ -13,10 +13,10 @@ namespace algorithm
       std::vector<int> values = { 1, 2, 5, 8, 8, 10 };
       assert(end(values) != binarySearch(values, 2));
 
-      //assert(end(values) == binarySearch(values, 0));
-      //assert(end(values) == binarySearch(values, 4));
-      //assert(end(values) == binarySearch(values, 11));
-      //for (int v : values)
-      //   assert(end(values) != binarySearch(values, v));
+      assert(end(values) == binarySearch(values, 0));
+      assert(end(values) == binarySearch(values, 4));
+      assert(end(values) == binarySearch(values, 11));
+      for (int v : values)
+         assert(end(values) != binarySearch(values, v));
    }
 }
