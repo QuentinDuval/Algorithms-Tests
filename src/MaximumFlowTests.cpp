@@ -29,9 +29,37 @@ namespace algorithm
       assert(2000. == computeMaximumFlow(g, 0, 3));
    }
 
+   static void complexFlowTest()
+   {
+      CapacityGraph g(8);
+
+      g.addEdge({ 0, 1, 10. });
+      g.addEdge({ 0, 2, 5. });
+      g.addEdge({ 0, 3, 15. });
+
+      g.addEdge({ 1, 2, 4. });
+      g.addEdge({ 2, 3, 4. });
+
+      g.addEdge({ 1, 4, 8. });
+      g.addEdge({ 1, 5, 15. });
+      g.addEdge({ 2, 5, 8. });
+      g.addEdge({ 3, 6, 16. });
+
+      g.addEdge({ 4, 5, 15. });
+      g.addEdge({ 5, 6, 15. });
+      g.addEdge({ 6, 2, 6. });
+
+      g.addEdge({ 4, 7, 10. });
+      g.addEdge({ 5, 7, 10. });
+      g.addEdge({ 6, 7, 10. });
+
+      assert(28. == computeMaximumFlow(g, 0, 7));
+   }
+
    void maximumFlowTests()
    {
       trivialGraphTest();
       diamondGraphTest();
+      complexFlowTest();
    }
 }
