@@ -35,7 +35,6 @@ int main()
    linkedListTests();
    graphTests();
    graphSearchTests();
-   symbolGraphTests();
    connectedComponentsTests();
    shortestPathTests();
    topologicalSortTests();

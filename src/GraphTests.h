@@ -4,5 +4,4 @@
 namespace algorithm
 {
    void graphTests();
-   void symbolGraphTests();
 }

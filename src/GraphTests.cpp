@@ -2,7 +2,6 @@
 
 #include "DiGraph.h"
 #include "Graph.h"
-#include "SymbolGraph.h"
 #include "WeightedDiGraph.h"
 #include "utils/TestUtils.h"
 
@@ -70,19 +69,5 @@ namespace algorithm
    {
       undirectedGraphTests();
       directedGraphTests();
-   }
-
-   //--------------------------------------------------------------------------
-
-   void symbolGraphTests()
-   {
-      auto inputs = { "a", "b", "c", "d", "e" };
-      SymbolGraph<std::string> g(begin(inputs), end(inputs));
-      g.addEdge("a", "b");
-      g.addEdge("a", "c");
-      g.addEdge("d", "e");
-
-      assert(5 == g.vertexCount());
-      assert(3 == g.edgeCount());
    }
 }
