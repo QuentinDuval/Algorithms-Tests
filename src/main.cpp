@@ -1,5 +1,6 @@
 #include "BinarySearchTests.h"
 #include "ConnectedComponentTests.h"
+#include "EncodingTests.h"
 #include "GraphSearchTests.h"
 #include "GraphTests.h"
 #include "LinkedListTests.h"
@@ -51,7 +52,8 @@ int main()
    priorityQueueTests();
    sortingTests();
    subStringSearchTests();
-   //TODO - Add the max flow
+   bitStreamTest();
+   runLengthEncodingTests();
 
    if (runPerformanceTests("graphs"))
    {
