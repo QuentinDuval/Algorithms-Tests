@@ -54,6 +54,7 @@ int main()
    subStringSearchTests();
    bitStreamTest();
    runLengthEncodingTests();
+   huffmanEncodingTests();
 
    if (runPerformanceTests("graphs"))
    {
