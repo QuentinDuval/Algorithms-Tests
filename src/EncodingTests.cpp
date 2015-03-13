@@ -57,9 +57,41 @@ namespace algorithm
       HuffmanEncoding encoding;
       BitStream bitStream;
 
-      std::string adn = "ATACGCGTACGTAGCATCGCGTAATATTAGCTAGC";
+      std::cout << "[Tests] Huffman encoding (ratios)" << std::endl;
+
+      //TODO - Bug in case the tree is made of one leaf at the top -> one type of char only
+      //size_t size = 100;
+      //std::cout << " - One character: ";
+      //std::string oneChar(size, 'a');
+      //encodeWith(encoding, oneChar, bitStream);
+      //std::cout << bitStream.toRead() / (8.0 * oneChar.size()) << std::endl;
+      //assert(oneChar == decodeWith(encoding, bitStream));
+
+      size_t size = 100;
+      std::cout << " - 2 characters: ";
+      std::string twoChars = std::string(size / 2, 'a') + std::string(size / 2, 'b');
+      encodeWith(encoding, twoChars, bitStream);
+      std::cout << bitStream.toRead() / (8.0 * twoChars.size()) << std::endl;
+      assert(twoChars == decodeWith(encoding, bitStream));
+
+      std::cout << " - ADN: ";
+      std::string adn = "ATACGCGTACGTAGCATCGCGTAATATTAGCTAGCATACGCGTACGTAGCATCGCGTAATATTAGCTAGCATACGCGTACGTAGCATCGCGTAATATTAA";
       encodeWith(encoding, adn, bitStream);
       std::cout << bitStream.toRead() / (8.0 * adn.size()) << std::endl;
       assert(adn == decodeWith(encoding, bitStream));
+
+      std::cout << " - English sentence: ";
+      std::string phr = "Let us try the huffman compression algorithm for a typical english language sentence like this one !";
+      encodeWith(encoding, phr, bitStream);
+      std::cout << bitStream.toRead() / (8.0 * phr.size()) << std::endl;
+      assert(phr == decodeWith(encoding, bitStream));
+
+      std::cout << " - Only different letters: ";
+      std::string allDifferent;
+      for (size_t i = 0; i < 100; ++i)
+         allDifferent += 'a' + i - 1;
+      encodeWith(encoding, allDifferent, bitStream);
+      std::cout << bitStream.toRead() / (8.0 * allDifferent.size()) << std::endl;
+      assert(allDifferent == decodeWith(encoding, bitStream));
    }
 }
