@@ -10,7 +10,7 @@
 
 namespace algorithm
 {
-   void stringTrieTests()
+   void stringTrieSetTests()
    {
       StringTrieSet t;
       auto inputs = { "alpha", "beta", "alpha-numeric" };
@@ -29,6 +29,33 @@ namespace algorithm
       for (auto& s : inputs) assert(true == t.insert(s));
       for (auto& s : inputs) assert(true == t.search(s));
    }
+
+   void stringTrieMapTests()
+   {
+      StringTrie<int> t;
+      auto keys = std::vector<std::string>{ "alpha", "beta", "alpha-numeric" };
+      auto vals = std::vector<int>        { 1, 2, 3 };
+
+      for (size_t i = 0; i < keys.size(); ++i)
+         t.insert(keys[i], vals[i]);
+      assert(3 == t.size());
+
+      assert(nullptr == t.search("a"));
+      assert(nullptr == t.search("alpha-"));
+
+
+
+      for (auto& s : keys) assert(true == t.remove(s));
+      assert(0 == t.size());
+   }
+
+   void stringTrieTests()
+   {
+      stringTrieSetTests();
+      stringTrieMapTests();
+   }
+
+   //--------------------------------------------------------------------------
 
    void stringTriePerfTests()
    {
