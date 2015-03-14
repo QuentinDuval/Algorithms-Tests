@@ -40,10 +40,15 @@ namespace algorithm
          t.insert(keys[i], vals[i]);
       assert(3 == t.size());
 
+      for (size_t i = 0; i < keys.size(); ++i)
+         assert(vals[i] == *t.search(keys[i]));
+
       assert(nullptr == t.search("a"));
       assert(nullptr == t.search("alpha-"));
 
-
+      assert("alpha" == t.longestPrefixOf("alpha-"));
+      assert("alpha" == t.longestPrefixOf("alphab"));
+      assert("" == t.longestPrefixOf("alph"));
 
       for (auto& s : keys) assert(true == t.remove(s));
       assert(0 == t.size());
