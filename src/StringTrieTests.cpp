@@ -12,7 +12,7 @@ namespace algorithm
 {
    void stringTrieTests()
    {
-      StringTrie t;
+      StringTrieSet t;
       auto inputs = { "alpha", "beta", "alpha-numeric" };
       
       for (auto& s : inputs) assert(true == t.insert(s));
@@ -32,7 +32,7 @@ namespace algorithm
 
    void stringTriePerfTests()
    {
-      size_t dim = 100000;
+      size_t dim = 1000000;
       std::vector<std::string> strings(dim);
       for (size_t i = 0; i < dim; ++i)
       {
@@ -42,7 +42,7 @@ namespace algorithm
       utils::shuffle(strings);
 
       std::cout << std::endl << "[String trie timings]" << std::endl;
-      StringTrie t;
+      StringTrieSet t;
 
       std::cout << "* Inserts" << std::endl;
       utils::showTime(std::cout, [&]() { for (auto& s : strings) t.insert(s); });
