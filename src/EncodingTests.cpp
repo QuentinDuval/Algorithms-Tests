@@ -104,7 +104,7 @@ namespace algorithm
 
    void lzwEncodingTests()
    {
-      LzwEncoding encoding(12);
+      LzwEncoding encoding(10);
       std::cout << "[Tests] LZW encoding (ratios)" << std::endl;
       genericEncodingTests(encoding);
    }
