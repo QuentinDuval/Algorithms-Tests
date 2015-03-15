@@ -2,6 +2,7 @@
 
 #include "BitStream.h"
 #include "HuffmanEncoding.h"
+#include "LzwEncoding.h"
 #include "RunLengthEncoding.h"
 
 #include <cassert>
@@ -52,12 +53,9 @@ namespace algorithm
 
    //--------------------------------------------------------------------------
 
-   void huffmanEncodingTests()
+   static void genericEncodingTests(Encoding& encoding)
    {
-      HuffmanEncoding encoding;
       BitStream bitStream;
-
-      std::cout << "[Tests] Huffman encoding (ratios)" << std::endl;
 
       //TODO - Bug in case the tree is made of one leaf at the top -> one type of char only
       //size_t size = 100;
@@ -93,5 +91,21 @@ namespace algorithm
       encodeWith(encoding, allDifferent, bitStream);
       std::cout << bitStream.toRead() / (8.0 * allDifferent.size()) << std::endl;
       assert(allDifferent == decodeWith(encoding, bitStream));
+   }
+
+   void huffmanEncodingTests()
+   {
+      HuffmanEncoding encoding;
+      std::cout << "[Tests] Huffman encoding (ratios)" << std::endl;
+      genericEncodingTests(encoding);
+   }
+
+   //--------------------------------------------------------------------------
+
+   void lzwEncodingTests()
+   {
+      LzwEncoding encoding(12);
+      std::cout << "[Tests] LZW encoding (ratios)" << std::endl;
+      genericEncodingTests(encoding);
    }
 }

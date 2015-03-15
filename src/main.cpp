@@ -55,6 +55,7 @@ int main()
    bitStreamTest();
    runLengthEncodingTests();
    huffmanEncodingTests();
+   lzwEncodingTests();
 
    if (runPerformanceTests("graphs"))
    {
